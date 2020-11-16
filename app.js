@@ -34,6 +34,21 @@ document.querySelector(".btn-roll").addEventListener("click", function () {
     roundScore = roundScore + diceNumber;
     document.getElementById("current-" + activePlayer).textContent = roundScore;
   } else {
-    //1 буусан бол
-  }
+    //1 буусан бол тоглогчийн ээлжийг сольж өгнө
+    roundScore = 0;
+    document.getElementById("current-" + activePlayer).textContent = 0;
+    // хэрэв идэвхтэй тоглогч нь 0 байвал идэвхтэй тоглогчийг нэг болго
+    // үгүй бол идэвхтэй тоглогчийн 0 болго
+
+    //activePlayer === 0 ? (activePlayer = 1) : (activePlayer = 0);
+    if (activePlayer === 0) {
+      activePlayer = 1;
+    } else {
+      activePlayer = 0;
+    }
+    //Улаанцэгийг хайж олно
+    document.querySelector(".player-0-panel").classList.toggle("active");
+    document.querySelector(".player-1-panel").classList.toggle("active");
+    //Шоог түр алга болгох
+    diceDom.style.display = "none";
 });
